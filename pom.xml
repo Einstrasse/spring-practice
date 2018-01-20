@@ -20,7 +20,11 @@
   		<artifactId>logback-classic</artifactId>
   		<version>1.1.8</version>
   	</dependency>
+  	
   	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-webmvc</artifactId>
+  		<version>1.2.6</version>
 	  	<exclusions>
 	  		<!--  Exclude Commons Loggin in favor of SLF4j -->
 	  		<exclusion>
@@ -30,10 +34,31 @@
 	  	</exclusions>
   	</dependency>
   	
+  	<dependency>
+  		<groupId>com.h2database</groupId>
+  		<artifactId>h2</artifactId>
+  		<version>1.4.193</version>
+  	</dependency>
+  	
   </dependencies>
   <properties>
   	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   	<maven.compiler.source>1.8</maven.compiler.source>
   	<Maven.compiler.target>1.8</Maven.compiler.target>
   </properties>
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.codehaus.mojo</groupId>
+  			<artifactId>exec-maven-plugin</artifactId>
+  			<version>1.5.0</version>
+  			<configuration>
+  				<mainClass>org.h2.tools.Console</mainClass>
+  				<arguments>
+  					<argument>-browser</argument>
+  				</arguments>
+  			</configuration>
+  		</plugin>
+  	</plugins>
+  </build>
 </project>
